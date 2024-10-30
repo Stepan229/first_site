@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link type="text/css" href="{% static 'im/css/chat.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="chat-container">
+    <aside class="chat-list">
+        <div class="chat">
+            <p>Чат 1</p>
+        </div>
+        <div class="chat">
+            <p>Чат 2</p>
+        </div>
+        <div class="chat">
+            <p>Чат 3</p>
+        </div>
+    </aside>
+    <main class="chat-window">
+        <div class="message">
+            <div class="message-content">
+                <p>Сообщение 1 от пользователя</p>
+            </div>
+        </div>
+        <div class="message">
+            <div class="message-content">
+                <p>Сообщение 2 от другого пользователя</p>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}
