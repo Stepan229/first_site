@@ -5,4 +5,4 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='users:login')
 def index(request):
-    return render(request, 'kazino/message_menu.html')
+    return render(request, 'kazino/menu.html')

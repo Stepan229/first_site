@@ -74,6 +74,19 @@ body {
     display: flex;
 }
 
+.user-info {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ecf0f1; /* Light color for contrast */
+}
+
+.user-info a {
+    text-decoration: none;
+    color: #ecf0f1; /* Light color for contrast */
+}
+
 @media (max-width: 768px) {
     .wrapper {
         flex-direction: column;

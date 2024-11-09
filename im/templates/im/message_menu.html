@@ -8,27 +8,35 @@
 {% block content %}
 <div class="chat-container">
     <aside class="chat-list">
-        <div class="chat">
-            <p>Чат 1</p>
-        </div>
-        <div class="chat">
-            <p>Чат 2</p>
-        </div>
-        <div class="chat">
-            <p>Чат 3</p>
-        </div>
+        {% for chat in chats %}
+            <div class="chat">
+                <a href="/profile" class="menu-button-chats">{{chat}}</a>
+            </div>
+        {% endfor %}
     </aside>
     <main class="chat-window">
-        <div class="message">
-            <div class="message-content">
-                <p>Сообщение 1 от пользователя</p>
+        {% for message in messages %}
+            {% if message.user_id == request.user.id %}
+                <div class="message my-message">
+                    <div class="message-content">
+                        <p>{{message.text}}</p>
+                    </div>
+                </div>
+            {% else %}
+                <div class="message other-message">
+                    <div class="message-content">
+                        <p>{{message.text}}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+            {{ form }}
+            <div class="auth-buttons">
+                <button type="submit" class="send-button">Отправить</button>
             </div>
-        </div>
-        <div class="message">
-            <div class="message-content">
-                <p>Сообщение 2 от другого пользователя</p>
-            </div>
-        </div>
+        </form>
     </main>
 </div>
 {% endblock %}

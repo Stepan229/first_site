@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import message
+from .views import messages, chats
 
 app_name = "mess"
 urlpatterns = [
-    path('', message, name="message"),
+    path('', chats, name="message"),
+    path('/<int:chats_id>', messages, name="chats"),
 ]
