@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'im/message_menu.html' %}
 
-</body>
-</html>
+{% block message_window %}
+<main class="chat-window">
+    <div class="message-container">
+        {% for message in messages %}
+            {% if message.creator_id == request.user.id %}
+                <div class="message my-message">
+                    <div class="message-content">
+                        <p>{{message.text}}</p>
+                    </div>
+                </div>
+            {% else %}
+                <div class="message other-message">
+                    <div class="message-content">
+                        <p>{{message.text}}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+            {{ form }}
+            <div class="auth-buttons">
+                <button type="submit" class="send-button">Отправить</button>
+            </div>
+        </form>
+    </main>
+{% endblock %}

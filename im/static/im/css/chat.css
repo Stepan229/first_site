@@ -1,6 +1,8 @@
-
-
-
+.message-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 .chat-container {
     display: flex;
     width: 100%;
@@ -17,7 +19,6 @@
 .chat {
     margin: 15px 0;
 }
-
 
 .menu-button-chats {
     display: block;
@@ -39,103 +40,99 @@
     transform: scale(1.01);
 }
 
-
 .chat-window {
-    flex-grow: 1;
-    padding: 20px;
-    overflow-y: auto;
-    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+    padding-bottom: 60px;
+    position: relative;
 }
 
 .message {
     background-color: #f1f1f1;
-    /*background-color: transparent;*/
     border-radius: 10px;
     padding: 10px;
     margin: 5px 0;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-    max-width: 70%; /* Ограничиваем ширину сообщений */
+    max-width: 70%;
 }
 
 .other-message {
-    align-self: flex-start; /* Выравнивание влево для чужих сообщений */
+    align-self: flex-start;
     background-color: #b7d1ef;
     margin-right: auto;
 }
 
 .my-message {
-    align-self: flex-end; /* Выравнивание вправо для ваших сообщений */
-    background-color: #d1e7dd; /* Можно изменить цвет фона для ваших сообщений */
-    margin-left: auto; /* Отодвигаем сообщения от левого края */
+    align-self: flex-end;
+    background-color: #d1e7dd;
+    margin-left: auto;
 }
 
 .auth-form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-top: 1px solid #ccc;
     display: flex;
     flex-direction: column;
-    width: 100%; /* Ширина формы */
-}
-
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%; /* Full width */
 }
 
 .auth-form textarea {
     width: 100%;
-    height: 50px; /* Height of the text area */
-    padding: 10px; /* Padding inside the text area */
-    border-radius: 5px; /* Rounded corners */
-    border: 1px solid #ccc; /* Border color */
-    margin-bottom: 10px; /* Space below the text area */
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    resize: vertical;
 }
 
 .auth-buttons {
     display: flex;
-    justify-content: flex-end; /* Align button to the right */
+    justify-content: flex-end;
 }
 
 .send-button {
-    padding: 10px 15px; /* Button padding */
-    background-color: #1abc9c; /* Button color */
-    color: white; /* Text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px 15px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .send-button:hover {
-    background-color: #16a085; /* Darker shade on hover */
+    background-color: #16a085;
 }
 
 .form-input {
     outline: none;
-    width: 100%; /* Задает ширину 100% от контейнера */
-    padding: 10px; /* Внутренние отступы для удобства ввода */
-    border-color: #66afe9; /* Цвет рамки при фокусе */ /* Рамка светло-серого цвета */
-    border-radius: 5px; /* Закругленные углы */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень для придания объема */
-    font-size: 16px; /* Размер шрифта для удобочитаемости */
+    width: 100%;
+    padding: 10px;
+    border-color: #66afe9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
 }
 
 .form-submit {
-    background-color: #5cb85c; /* Зеленый цвет кнопки */
-    color: white; /* Цвет текста на кнопке */
-    padding: 10px 20px; /* Внутренние отступы для кнопки */
-    border: none; /* Убираем стандартную рамку */
-    border-radius: 5px; /* Закругленные углы */
-    cursor: pointer; /* Указатель при наведении */
-    font-size: 16px; /* Размер шрифта для кнопки */
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .form-submit:hover {
-    background-color: #4cae4c; /* Темнее при наведении */
+    background-color: #4cae4c;
 }
-
-/*.form-input:focus {*/
-/*    outline: none; !* Убираем стандартный контур браузера *!*/
-/*    box-shadow: 0 0 5px rgba(102, 175, 233, 0.5); !* Легкая тень при фокусе *!*/
-/*}*/
 
 @media (max-width: 768px) {
     .chat-container {

@@ -6,7 +6,6 @@ from django.db import models
 class Chat(models.Model):
     title = models.CharField(max_length=70)
     time_create = models.DateTimeField(auto_now_add=True)
-
     def __str__(self):
         return self.title
 
@@ -18,7 +17,7 @@ class UserMessages(models.Model):
 
 
 class Message(models.Model):
-    creatolr_id = models.IntegerField()
+    creator_id = models.IntegerField()
     UserMessages_id = models.ForeignKey(UserMessages, on_delete=models.CASCADE)
     text = models.CharField(max_length=1000)
     time_create = models.DateTimeField(auto_now=True)
